@@ -46,8 +46,8 @@ public class print_linked_list_from_end_to_end {
     }
     /**
      * 递归三要素
-     * 终止条件： 递归进入链表尾，即节点为空节点时结束递归。
-     * 返回值： 每次返回子问题之后的全部输出。
+     * 终止条件： 递归进入链表尾，即节点为空节点时结束递归。<br>
+     * 返回值： 每次返回子问题之后的全部输出。<br>
      * 本级任务： 每级子任务递归地进入下一级，等下一级的子问题输出数组返回时，将自己的节点值添加在数组末尾。- 根据归步骤获取值
      */
     public static void recursion(ListNode head,ArrayList<Integer> list){
@@ -55,36 +55,5 @@ public class print_linked_list_from_end_to_end {
             recursion(head.getNext(), list);
             list.add(head.getData());
         }
-    }
-}
-class ListNode{
-    private Integer data;
-    private ListNode next;
-
-    public ListNode(Integer data) {
-        this.data = data;
-    }
-
-    public ListNode getNext() {
-        return next;
-    }
-
-    public void setNext(ListNode next) {
-        this.next = next;
-    }
-
-    public Integer getData() {
-        return data;
-    }
-
-    public void setData(Integer data) {
-        this.data = data;
-    }
-
-    @Override
-    public String toString() {
-        return "ListNode{" +
-                "data=" + data +
-                '}';
     }
 }
