@@ -45,6 +45,11 @@ public class Reverse_Linked_List {
         }
         return pre;
     }
+
+    /**
+     * 递归法解决
+     *
+     */
 }
 
 
