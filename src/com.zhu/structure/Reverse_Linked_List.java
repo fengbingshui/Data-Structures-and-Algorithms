@@ -7,11 +7,9 @@ import java.util.List;
  * 数据范围 [0-1000]
  * 要求空间复杂度 O(1) 时间复杂度O(n) 一个循环
  * 空间复杂度 O(1) 算法执行过程中所需的额外空间不随输入规模的变化而变化，即算法的空间复杂度是常数级别的。
- *
+ * <p>
  * 反转单链表
- *   递归
- *
- *
+ * 递归
  */
 public class Reverse_Linked_List {
     public static void main(String[] args) {
@@ -20,10 +18,10 @@ public class Reverse_Linked_List {
         ListNode listNode3 = new ListNode(3);
         listNode1.setNext(listNode2);
         listNode2.setNext(listNode3);
-        ListNode listNode = ReverseList(listNode1);
-        while (listNode != null){
+        ListNode listNode = reverse(listNode1);
+        while (listNode != null) {
             System.out.println(listNode.data);
-           listNode =  listNode.next;
+            listNode = listNode.next;
         }
     }
 
@@ -31,12 +29,11 @@ public class Reverse_Linked_List {
     /**
      * 指针逆转 - 断掉当前节点向后的指针，改为向前。
      * 需要两个指针，一个当前节点的指针，一个上一个节点的指针（初始为空）
-     *
      */
     public static ListNode ReverseList(ListNode head) {
         ListNode pre = null;
         ListNode next = null;
-        while (head != null){
+        while (head != null) {
             next = head.next;
             head.next = pre;
             //移动两个指针
@@ -48,8 +45,17 @@ public class Reverse_Linked_List {
 
     /**
      * 递归法解决
-     *
      */
+    public static ListNode reverse(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode reverse = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return reverse;
+    }
+
 }
 
 
